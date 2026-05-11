@@ -30,11 +30,11 @@ const skillCategories = [
     title: "Backend & Database",
     skills: [
       { name: "Firebase", level: 90 },
-      { name: "Supabase", level: 85 },
       { name: "REST APIs", level: 92 },
       { name: "GraphQL", level: 75 },
       { name: "SQLite", level: 85 },
       { name: "PostgreSQL", level: 78 },
+      { name: "Node.js", level: 70 },
     ],
   },
   {
@@ -55,7 +55,7 @@ const technologies = [
   { name: "Kotlin", icon: "🟣" },
   { name: "Android", icon: "🤖" },
   { name: "Firebase", icon: "🔥" },
-  { name: "Supabase", icon: "⚡" },
+  { name: "REST API", icon: "🔌" },
   { name: "Git", icon: "📦" },
   { name: "Figma", icon: "🎨" },
 ]
