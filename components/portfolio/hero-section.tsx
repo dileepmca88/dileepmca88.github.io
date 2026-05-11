@@ -72,19 +72,37 @@ export function HeroSection() {
               transition={{ delay: 0.4 }}
               className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium"
             >
-              Flutter & Android Developer
+              Senior Software Developer L2 | Flutter & Android Expert
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-muted-foreground leading-relaxed mb-8 max-w-lg"
+              className="text-muted-foreground leading-relaxed mb-6 max-w-2xl"
             >
-              I craft beautiful, performant mobile applications that users love. 
-              Specializing in Flutter cross-platform development and native Android, 
-              I bring ideas to life with clean code and stunning UI.
+              Professional Software Engineer specializing in Android Mobile Application Development, 
+              highly skilled in Flutter, Dart, Kotlin, and Core Java. Building responsive UI and focused 
+              on implementing enterprise solutions in consultative environments with major clients 
+              across club management, smart city, and EdTech sectors.
             </motion.p>
+
+            {/* Tech Stack Badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="flex flex-wrap gap-2 mb-6"
+            >
+              {["Flutter", "Android", "Kotlin", "Firebase", "Enterprise Apps", "10+ Years Exp"].map((badge) => (
+                <span 
+                  key={badge}
+                  className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                >
+                  {badge}
+                </span>
+              ))}
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
