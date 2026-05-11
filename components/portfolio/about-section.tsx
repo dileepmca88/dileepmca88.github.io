@@ -7,8 +7,8 @@ import { Code2, Smartphone, Palette, Zap, Award, Briefcase, Users, Rocket } from
 
 const stats = [
   { value: "10", label: "Play Store Apps" },
-  { value: "9+", label: "Years Experience" },
-  { value: "150K+", label: "App Downloads" },
+  { value: "10+", label: "Years Experience" },
+  { value: "160K+", label: "App Downloads" },
   { value: "3", label: "Companies Worked" },
 ]
 
@@ -135,11 +135,11 @@ export function AboutSection() {
               </div>
             </div>
 
-            {/* 2024 Market Recommendations */}
+            {/* 2026 Market Recommendations */}
             <div className="glass-card rounded-2xl p-6 border-primary/20">
               <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                 <Rocket className="w-5 h-5 text-primary" />
-                2024 Market Trends & Recommendations
+                2026 Market Trends & Recommendations
               </h3>
               <div className="grid gap-3">
                 {marketRecommendations.map((rec, index) => (

@@ -46,15 +46,6 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full mb-6"
-            >
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-sm text-muted-foreground">Available for freelance</span>
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -62,7 +53,7 @@ export function HeroSection() {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
             >
-              <span className="text-foreground">Hi, I&apos;m </span>
+              <span className="text-foreground">Building the Future with </span>
               <span className="text-primary">Dileep Patel</span>
             </motion.h1>
 
