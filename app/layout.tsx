@@ -14,8 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Alex Chen | Flutter & Android Developer',
-  description: 'Premium portfolio of Alex Chen - A passionate Flutter and Android developer crafting beautiful mobile experiences',
+  title: 'Dileep Patel | Flutter & Android Developer',
+  description: 'Portfolio of Dileep Patel - A passionate Flutter and Android developer crafting beautiful mobile experiences',
   keywords: ['Flutter', 'Android', 'Mobile Developer', 'Dart', 'Kotlin', 'iOS', 'Cross-platform'],
 }
 
