@@ -28,7 +28,7 @@ export function Footer() {
           <div className="text-center md:text-left">
             <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center md:justify-start">
               © {currentYear} Dileep Patel. Made with{" "}
-              <Heart className="w-4 h-4 text-red-500 fill-red-500" /> using Flutter & React
+              <Heart className="w-4 h-4 text-red-500 fill-red-500" /> in India
             </p>
           </div>
 

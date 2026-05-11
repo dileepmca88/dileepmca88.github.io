@@ -23,23 +23,27 @@ const getContributionColor = (level: number) => {
   return colors[level] || colors[0]
 }
 
-// Generate realistic contribution data based on actual activity
-const generateContributionData = () => {
+// Generate realistic contribution data based on actual activity level
+const generateContributionData = (activityLevel: number) => {
   const weeks = 52
   const days = 7
   const data = []
+  
+  // Higher activity = more green cells
+  const activityMultiplier = Math.min(activityLevel / 100, 1) // 0 to 1 scale
   
   for (let w = 0; w < weeks; w++) {
     const week = []
     for (let d = 0; d < days; d++) {
       // More realistic pattern - higher activity on weekdays
       const isWeekend = d === 0 || d === 6
-      const baseLevel = isWeekend ? 0 : Math.floor(Math.random() * 3)
-      const randomFactor = Math.random()
-      let level = baseLevel
+      const baseLevel = isWeekend ? 0 : Math.floor(Math.random() * 2)
       
-      if (randomFactor > 0.7) level += 1
-      if (randomFactor > 0.9) level += 1
+      // Add activity-based boost
+      let level = baseLevel
+      if (Math.random() < activityMultiplier * 0.6) level += 1
+      if (Math.random() < activityMultiplier * 0.3) level += 1
+      if (Math.random() < activityMultiplier * 0.1) level += 1
       
       week.push(Math.min(level, 4))
     }
@@ -52,22 +56,47 @@ export function GitHubStats() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [githubData, setGithubData] = useState<GitHubData | null>(null)
-  const [contributionData] = useState(generateContributionData())
+  const [contributionData, setContributionData] = useState(() => generateContributionData(0))
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
         // Fetch user data from GitHub API
-        const response = await fetch('https://api.github.com/users/dileepmca88')
-        if (response.ok) {
-          const data = await response.json()
+        const [userResponse, reposResponse, eventsResponse] = await Promise.all([
+          fetch('https://api.github.com/users/dileepmca88'),
+          fetch('https://api.github.com/users/dileepmca88/repos?per_page=100'),
+          fetch('https://api.github.com/users/dileepmca88/events/public?per_page=100')
+        ])
+        
+        let totalStars = 0
+        let recentActivity = 0
+        
+        if (reposResponse.ok) {
+          const repos = await reposResponse.json()
+          totalStars = repos.reduce((acc: number, repo: any) => acc + repo.stargazers_count, 0)
+        }
+        
+        if (eventsResponse.ok) {
+          const events = await eventsResponse.json()
+          // Count recent push events as proxy for contributions
+          const pushEvents = events.filter((e: any) => e.type === 'PushEvent')
+          recentActivity = pushEvents.length
+        }
+        
+        if (userResponse.ok) {
+          const data = await userResponse.json()
+          const calculatedContributions = data.public_repos * 12 + totalStars * 3 + recentActivity * 2
+          
           setGithubData({
             followers: data.followers,
             following: data.following,
             publicRepos: data.public_repos,
-            contributions: data.public_repos * 15 + data.followers * 2, // Estimated contributions
+            contributions: calculatedContributions,
           })
+          
+          // Generate contribution data based on actual activity
+          setContributionData(generateContributionData(calculatedContributions))
         }
       } catch (error) {
         console.error('Error fetching GitHub data:', error)

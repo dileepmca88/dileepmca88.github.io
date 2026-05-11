@@ -6,10 +6,10 @@ import { useRef } from "react"
 import { Code2, Smartphone, Palette, Zap, Award, Briefcase, Users, Rocket } from "lucide-react"
 
 const stats = [
-  { value: "6+", label: "Play Store Apps" },
-  { value: "10+", label: "Years Experience" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "100K+", label: "App Downloads" },
+  { value: "10", label: "Play Store Apps" },
+  { value: "9+", label: "Years Experience" },
+  { value: "150K+", label: "App Downloads" },
+  { value: "3", label: "Companies Worked" },
 ]
 
 const highlights = [
@@ -51,7 +51,7 @@ const certificates = [
 ]
 
 const marketRecommendations = [
-  { title: "AI Integration", desc: "Add Gemini/ChatGPT APIs to apps for 2024 market", icon: Rocket },
+  { title: "AI Integration", desc: "Add Gemini/ChatGPT APIs to apps for 2026 market", icon: Rocket },
   { title: "Flutter Web", desc: "Expand to web platforms for broader reach", icon: Smartphone },
 ]
 
