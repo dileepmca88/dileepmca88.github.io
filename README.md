@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website built with Next.js, TypeScript, and TailwindCSS.
 
+**Live Demo:** https://dileepmca88.github.io
+
 ## 🚀 Features
 
 - **Modern Tech Stack**: Next.js 16, TypeScript, TailwindCSS
